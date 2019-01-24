@@ -1,5 +1,5 @@
 {
-  "name": "sqlectron-core",
+  "name": "@systembug/sqlectron-core",
   "version": "8.0.1",
   "description": "sqlectron-core",
   "main": "lib/index.js",
