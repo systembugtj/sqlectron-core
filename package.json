@@ -1,22 +1,23 @@
 {
   "name": "@systembug/sqlectron-core",
-  "version": "8.0.1",
+  "version": "8.0.3",
   "description": "sqlectron-core",
   "main": "lib/index.js",
   "author": "The SQLECTRON Team",
   "license": "MIT",
   "scripts": {
+    "postinstall": "electron-builder install-app-deps",
     "compile": "babel -d lib/ src/",
     "watch": "babel --watch -d lib/ src/",
-    "prepublish": "npm run compile",
+    "prepublish": "yarn compile",
     "lint": "eslint src/ spec/",
-    "test:mysql": "DB_CLIENTS=mysql npm run test",
-    "test:sqlite": "DB_CLIENTS=sqlite npm run test",
-    "test:sqlserver": "DB_CLIENTS=sqlserver npm run test",
-    "test:postgresql": "DB_CLIENTS=postgresql npm run test",
-    "test:cassandra": "DB_CLIENTS=cassandra npm run test",
-    "test": "npm run lint && mocha --timeout 40000 --compilers js:babel-core/register --reporter spec ./spec/**/*.spec.js",
-    "watch-test": "npm run lint && mocha --compilers js:babel/register --watch --reporter spec ./spec/**/*.spec.js"
+    "test:mysql": "DB_CLIENTS=mysql yarn test",
+    "test:sqlite": "DB_CLIENTS=sqlite yarn test",
+    "test:sqlserver": "DB_CLIENTS=sqlserver yarn test",
+    "test:postgresql": "DB_CLIENTS=postgresql yarn test",
+    "test:cassandra": "DB_CLIENTS=cassandra yarn test",
+    "test": "yarn lint && mocha --timeout 40000 --compilers js:babel-core/register --reporter spec ./spec/**/*.spec.js",
+    "watch-test": "yarn lint && mocha --compilers js:babel/register --watch --reporter spec ./spec/**/*.spec.js"
   },
   "keywords": [
     "sqlectron",
@@ -35,6 +36,7 @@
     "@sinonjs/formatio": "^3.1.0",
     "cassandra-driver": "^3.1.1",
     "debug": "^2.2.0",
+    "electron-builder": "^20.38.5",
     "env-paths": "^1.0.0",
     "mkdirp": "^0.5.1",
     "mssql": "^3.0.0",
@@ -44,6 +46,7 @@
     "sql-query-identifier": "^1.1.0",
     "ssh2": "^0.5.0",
     "uuid": "^3.0.0",
+    "sqlite3": "^4.0.6",
     "valida": "^2.0.0"
   },
   "devDependencies": {
@@ -61,7 +64,6 @@
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-import": "^1.15.0",
     "mocha": "^5.2.0",
-    "sinon": "^1.17.2",
-    "sqlite3": "^4.0.6"
+    "sinon": "^1.17.2"
   }
 }
